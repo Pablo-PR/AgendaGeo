@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">AgendaGeo</string>
+    <string name="title_events">Eventos</string>
+    <string name="title_map">Mapa</string>
+    <string name="title_add">Nuevo</string>
+    <string name="addText">Add fragment</string>
+    <string name="eventText">Event fragment</string>
+    <string name="nombre_evento">Nombre evento</string>
+    <string name="latitud">Latitud</string>
+    <string name="longitud">Longitud</string>
+    <string name="descripcion">Descripción</string>
+    <string name="crear">Crear</string>
+</resources>
