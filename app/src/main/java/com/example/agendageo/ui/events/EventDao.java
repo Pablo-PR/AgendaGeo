@@ -16,6 +16,6 @@ public interface EventDao {
     @Query("DELETE FROM events_table")
     void deleteAll();
 
-    @Query("SELECT * FROM events_table ORDER BY fecha ASC")
+    @Query("SELECT * FROM events_table ORDER BY fecha DESC")
     LiveData<List<Event>> getAllEvents();
 }

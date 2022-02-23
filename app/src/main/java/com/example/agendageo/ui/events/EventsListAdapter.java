@@ -44,7 +44,7 @@ public class EventsListAdapter extends RecyclerView.Adapter<EventsListAdapter.Vi
         holder.fecha.setText(stringFecha);
         holder.latitud.setText(String.valueOf(eventList.get(position).getLatitud()) + ",");
         holder.longitud.setText(String.valueOf(eventList.get(position).getLongitud()));
-        holder.descripcion.setText(eventList.get(position).getNombre());
+        holder.descripcion.setText(eventList.get(position).getDescripcion());
     }
 
     @Override

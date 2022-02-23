@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.agendageo.R;
 import com.example.agendageo.databinding.AddFragmentBinding;
@@ -58,11 +59,17 @@ public class AddFragment extends Fragment {
                 longitud = root.findViewById(R.id.longitud);
                 descripcion = root.findViewById(R.id.descripcion);
 
-                //Crear evento
-                Event event = new Event(nombre.getText().toString(), nuevaFecha[0], Double.parseDouble(latitud.getText().toString()), Double.parseDouble(longitud.getText().toString()), descripcion.getText().toString());
+                if (nombre.getText().toString().length() == 0 || latitud.getText().toString().length() == 0 || longitud.getText().toString().length() == 0 || descripcion.getText().toString().length() == 0) {
+                    Toast toast = Toast.makeText(getContext(), "Todos los campos tienen que estar rellenos", Toast.LENGTH_SHORT);
+                    toast.show();
+                }
+                else {
+                    //Crear evento
+                    Event event = new Event(nombre.getText().toString(), nuevaFecha[0], Double.parseDouble(latitud.getText().toString()), Double.parseDouble(longitud.getText().toString()), descripcion.getText().toString());
 
-                //Insertar el evento en la BBDD
-                eventViewModel.insert(event);
+                    //Insertar el evento en la BBDD
+                    eventViewModel.insert(event);
+                }
             }
         });
         return root;
