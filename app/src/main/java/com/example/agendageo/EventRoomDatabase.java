@@ -11,7 +11,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 import com.example.agendageo.ui.events.Event;
 import com.example.agendageo.ui.events.EventDao;
 
-@Database(entities = {Event.class}, version = 1, exportSchema = false)
+@Database(entities = {Event.class}, version = 2, exportSchema = false)
 public abstract class EventRoomDatabase extends RoomDatabase {
 
     public abstract EventDao eventDao();

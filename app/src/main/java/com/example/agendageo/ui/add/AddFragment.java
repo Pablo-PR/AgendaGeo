@@ -58,9 +58,10 @@ public class AddFragment extends Fragment {
                 latitud = root.findViewById(R.id.latitud);
                 longitud = root.findViewById(R.id.longitud);
                 descripcion = root.findViewById(R.id.descripcion);
+                Toast toast;
 
                 if (nombre.getText().toString().length() == 0 || latitud.getText().toString().length() == 0 || longitud.getText().toString().length() == 0 || descripcion.getText().toString().length() == 0) {
-                    Toast toast = Toast.makeText(getContext(), "Todos los campos tienen que estar rellenos", Toast.LENGTH_SHORT);
+                    toast = Toast.makeText(getContext(), "Todos los campos tienen que estar rellenos", Toast.LENGTH_SHORT);
                     toast.show();
                 }
                 else {
@@ -69,6 +70,9 @@ public class AddFragment extends Fragment {
 
                     //Insertar el evento en la BBDD
                     eventViewModel.insert(event);
+
+                    toast = Toast.makeText(getContext(), "Evento añadido", Toast.LENGTH_SHORT);
+                    toast.show();
                 }
             }
         });

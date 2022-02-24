@@ -59,7 +59,9 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         map.getUiSettings().setMyLocationButtonEnabled(false);
 
         for (Event e: eventList) {
-            map.addMarker(new MarkerOptions().position(new LatLng(e.getLatitud(), e.getLongitud())).title(e.getNombre()));
+            if (e.getFecha() >= System.currentTimeMillis()) {
+                map.addMarker(new MarkerOptions().position(new LatLng(e.getLatitud(), e.getLongitud())).title(e.getNombre()));
+            }
         }
 
         if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {

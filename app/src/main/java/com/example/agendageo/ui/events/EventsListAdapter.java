@@ -34,13 +34,18 @@ public class EventsListAdapter extends RecyclerView.Adapter<EventsListAdapter.Vi
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        long formatoFecha;
-
-        formatoFecha = Long.parseLong(String.valueOf(eventList.get(position).getFecha()));
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        String stringFecha = simpleDateFormat.format(new Date(formatoFecha));
+        String stringFecha = null;
 
         holder.nombre.setText(eventList.get(position).getNombre());
+
+        //Controlar que si no se indica ninguna fecha seleccione el día actual.
+        if (eventList.get(position).getFecha() == 0) {
+            stringFecha = simpleDateFormat.format(System.currentTimeMillis());
+        } else {
+            stringFecha = simpleDateFormat.format(eventList.get(position).getFecha());
+        }
+
         holder.fecha.setText(stringFecha);
         holder.latitud.setText(String.valueOf(eventList.get(position).getLatitud()) + ",");
         holder.longitud.setText(String.valueOf(eventList.get(position).getLongitud()));
